@@ -6,11 +6,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 
-
-// this is Mockito version 4.x
-// class MockNumberTriviaRepository extends Mock
-//     implements NumberTriviaRepository {}
-
 @GenerateMocks([NumberTriviaRepository])
 import 'get_concrete_number_trivia_test.mocks.dart';
 void main() {
@@ -30,7 +25,7 @@ void main() {
     when(mockNumberTriviaRepository.getConcreteNumberTrivia(any))
         .thenAnswer((_) async => Right(tNumberTrivia));
     // act
-    final result = await usecase(id: tNumber);
+    final result = await usecase(Params(tNumber));
 
     // assert
     expect(result, Right(tNumberTrivia));
