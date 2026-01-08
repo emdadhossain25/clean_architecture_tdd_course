@@ -6,7 +6,10 @@ class NumberTriviaModel extends NumberTrivia {
 
   factory NumberTriviaModel.fromJson(Map<String, dynamic> json) {
     return NumberTriviaModel(
-        quote: json['quote'],
-        id: (json['id'] as num).toInt());
+        quote: json['quote'], id: (json['id'] as num).toInt());
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'quote': quote};
   }
 }
