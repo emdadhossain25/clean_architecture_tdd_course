@@ -30,7 +30,7 @@ void main() {
     when(mockNumberTriviaRepository.getConcreteNumberTrivia(any))
         .thenAnswer((_) async => Right(tNumberTrivia));
     // act
-    final result = await usecase.execute(id: tNumber);
+    final result = await usecase(id: tNumber);
 
     // assert
     expect(result, Right(tNumberTrivia));
